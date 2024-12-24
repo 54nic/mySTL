@@ -2,7 +2,8 @@
 #include "node.h"
 #include <iostream>
 #define N 9999999
-int main(){
+int main()
+{
     map mp;
     mp.add(1, 111);
     std::cout << mp.len << std::endl;

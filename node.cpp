@@ -1,11 +1,14 @@
 #include "node.h"
 
-Node::Node(int data){
+Node::Node(int data)
+{
     this->data = data;
 }
-void Node::addNode(int data){
+void Node::addNode(int data)
+{
 
-    if(this->next){
+    if (this->next)
+    {
         Node *tmp = new Node(data);
         (*tmp).next = this->next;
         this->next->last = tmp;
@@ -13,23 +16,28 @@ void Node::addNode(int data){
         this->next->last = this;
     }
     else
-    this->next = new Node(data);
+        this->next = new Node(data);
     this->next->last = this;
 }
-void Node::deleteNode(){
+void Node::deleteNode()
+{
     Node *del = this;
-    if(this->last){
-        this->last->next=this->next;
+    if (this->last)
+    {
+        this->last->next = this->next;
     }
-    if(this->next){
-        this->next->last=this->last;
+    if (this->next)
+    {
+        this->next->last = this->last;
     }
     delete del;
 }
-int getNode(Node *node,int index){
-    for(int i = 0; i < index; i++){
-            if((*node).next)
-                node = (*node).next;
-        }
-        return (*node).data;
+int getNode(Node *node, int index)
+{
+    for (int i = 0; i < index; i++)
+    {
+        if ((*node).next)
+            node = (*node).next;
+    }
+    return (*node).data;
 }
